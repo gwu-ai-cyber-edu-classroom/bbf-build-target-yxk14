@@ -1,0 +1,8 @@
+# Generated database (seeded on first run; embeds the canary)
+links.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

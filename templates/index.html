@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>URL Shortener</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; }
+    input[type=url] { width: 70%; padding: .4rem; }
+    button { padding: .4rem .9rem; }
+    .new { background: #eef7ee; border: 1px solid #cde6cd; padding: .5rem .8rem; border-radius: .4rem; }
+    li { margin: .3rem 0; }
+    code { background: #f3f3f3; padding: 0 .25rem; }
+  </style>
+</head>
+<body>
+  <h1>URL Shortener</h1>
+  <form method="post" action="/shorten">
+    <input type="url" name="url" placeholder="https://example.com/very/long/link" required>
+    <button>Shorten</button>
+  </form>
+
+  {% if new_code %}
+    <p class="new">Short link created:
+      <a href="/{{ new_code }}">/{{ new_code }}</a>
+    </p>
+  {% endif %}
+
+  <h2>Links</h2>
+  <ul>
+    {% for link in links %}
+      <li>
+        <a href="/{{ link['code'] }}">/{{ link['code'] }}</a>
+        &rarr; {{ link['target_url'] }}
+        {% if link['label'] %}<small>({{ link['label'] }})</small>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

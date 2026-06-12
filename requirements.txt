@@ -1,5 +1,5 @@
 # Build-check dependency (runs in CI regardless of your chosen target).
 pytest>=7.0
 
-# Build target: quiz/poll web app (BUILD-MENU #21).
+# Build target: URL shortener web app (BUILD-MENU #3).
 flask>=3.0
