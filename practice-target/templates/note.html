@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Note #{{ note['id'] }}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; }
+    .note { border: 1px solid #ddd; border-radius: .4rem; padding: .8rem 1rem; }
+  </style>
+</head>
+<body>
+  <p><a href="/">&larr; all notes</a></p>
+  <h1>Note #{{ note['id'] }} <small>({{ note['owner'] }})</small></h1>
+  <div class="note">
+    {# BUG (P5 XSS): `|safe` disables autoescaping, so a note body containing
+       <script> executes in the viewer's browser. Fix: remove `|safe`. #}
+    {{ note['body'] | safe }}
+  </div>
+</body>
+</html>

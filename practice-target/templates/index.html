@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Practice Notes (vulnerable)</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; }
+    .note { border: 1px solid #ddd; border-radius: .4rem; padding: .6rem .9rem; margin: .6rem 0; }
+    .warn { background: #fff3cd; border: 1px solid #ffe69c; padding: .5rem .8rem; border-radius: .4rem; }
+    code { background: #f3f3f3; padding: 0 .2rem; }
+  </style>
+</head>
+<body>
+  <p class="warn">⚠️ Intentionally vulnerable practice target. Not a valid build.</p>
+  <h1>Public notes</h1>
+  {% if user %}<p>Logged in as <b>{{ user }}</b>.</p>{% else %}
+    <form method="post" action="/login">
+      <input name="username" placeholder="username">
+      <input name="password" type="password" placeholder="password">
+      <button>Log in</button>
+    </form>
+  {% endif %}
+  {% for n in notes %}
+    <div class="note"><b>#{{ n['id'] }}</b> ({{ n['owner'] }}):
+      <a href="/note/{{ n['id'] }}">{{ n['body'] }}</a>
+    </div>
+  {% endfor %}
+  <h2>Add a note</h2>
+  <form method="post" action="/note">
+    <input name="body" placeholder="note body" style="width:60%">
+    <label><input type="checkbox" name="private"> private</label>
+    <button>Save</button>
+  </form>
+  <p>Try <code>/note/&lt;id&gt;</code>, <code>/search?q=...</code>, <code>/api/debug</code>.</p>
+</body>
+</html>
