@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quizzes</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; }
+    li { margin: .4rem 0; }
+    .note { color: #666; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <h1>Available quizzes</h1>
+  <ul>
+    {% for q in quizzes %}
+      <li><a href="/quiz/{{ q['id'] }}">{{ q['title'] }}</a></li>
+    {% endfor %}
+  </ul>
+  <p class="note">Private quizzes are not listed and require an owner token.</p>
+</body>
+</html>

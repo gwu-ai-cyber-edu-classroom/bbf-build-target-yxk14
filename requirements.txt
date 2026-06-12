@@ -1,7 +1,5 @@
 # Build-check dependency (runs in CI regardless of your chosen target).
 pytest>=7.0
 
-# Add your build target's own dependencies below, e.g.:
-#   flask            # for a local web app
-#   fastapi uvicorn  # for a REST API
-#   openai>=1.0.0    # only if you pick the optional AI-assistant track
+# Build target: quiz/poll web app (BUILD-MENU #21).
+flask>=3.0

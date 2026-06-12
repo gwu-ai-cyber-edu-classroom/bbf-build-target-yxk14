@@ -1,0 +1,7 @@
+# Generated quiz database (seeded automatically on first run)
+quizapp/quiz.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
