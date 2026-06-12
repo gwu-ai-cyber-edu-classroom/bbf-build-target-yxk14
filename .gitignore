@@ -1,8 +1,0 @@
-# Generated databases (seeded on first run; the practice DB embeds the canary)
-quizapp/quiz.db
-practice-target/practice.db
-
-# Python
-__pycache__/
-*.pyc
-.venv/
